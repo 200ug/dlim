@@ -1,0 +1,18 @@
+{
+    "default_output_dir": "/path/to/your/downloads",
+    "blacklist": {
+        "keywords": ["/kot/", "/deer/"],
+        "usernames": ["TestUser"],
+        "tripcodes": ["!TEST/UH3.F"]
+    },
+    "max_filesize": 10485760,
+    "accepted_ratios": [
+        [16, 9],
+        [4, 3]
+    ],
+    "accepted_extensions": ["png", "jpg", "jpeg"],
+    "only_images": true,
+    "max_concurrent_threads": 32,
+    "max_concurrent_media": 64,
+    "max_retries": 3
+}

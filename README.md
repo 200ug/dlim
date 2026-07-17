@@ -1,6 +1,6 @@
 # dlim
 
-4channel mass media downloader, improved.
+4chan mass media downloader, improved.
 
 ## Usage
 

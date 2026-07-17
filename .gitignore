@@ -1,0 +1,10 @@
+# misc
+.stormdrain/
+config.json
+downloads/
+.env
+*.txt
+
+# bin
+dlim
+

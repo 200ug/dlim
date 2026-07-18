@@ -20,9 +20,9 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "usage: dlim [-config path] [-out dir] <command> [args]")
 	fmt.Fprintln(os.Stderr, "")
 	fmt.Fprintln(os.Stderr, "commands:")
-	fmt.Fprintln(os.Stderr, "  thread <url>         download a single thread")
-	fmt.Fprintln(os.Stderr, "  board <abbrev>       download an entire board")
-	fmt.Fprintln(os.Stderr, "  threads <file>       download threads listed one-per-line in a file")
+	fmt.Fprintln(os.Stderr, "	thread <url>         download a single thread")
+	fmt.Fprintln(os.Stderr, "	board <abbrev>       download an entire board")
+	fmt.Fprintln(os.Stderr, "	threads <file>       download threads listed one-per-line in a file")
 }
 
 func main() {

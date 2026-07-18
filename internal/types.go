@@ -16,6 +16,7 @@ type RunConfig struct {
 	MaxConcurrentThreads int           `json:"max_concurrent_threads,omitempty"`
 	MaxConcurrentMedia   int           `json:"max_concurrent_media,omitempty"`
 	MaxRetries           int           `json:"max_retries,omitempty"`
+	RequestTimeout       string        `json:"request_timeout,omitempty"`
 }
 
 // https://a.4cdn.org/<board>/catalog.json

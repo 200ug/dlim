@@ -15,10 +15,11 @@ import (
 )
 
 const (
-	defaultUserAgent     = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3"
-	defaultThreadWorkers = 32
-	defaultMediaWorkers  = 64
-	defaultMaxRetries    = 3
+	defaultUserAgent      = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3"
+	defaultThreadWorkers  = 32
+	defaultMediaWorkers   = 64
+	defaultMaxRetries     = 3
+	defaultRequestTimeout = 120 * time.Second
 )
 
 type downloadTask struct {
@@ -55,9 +56,21 @@ func NewDownloader(rc RunConfig) (*Downloader, error) {
 		return nil, err
 	}
 
+	timeout := defaultRequestTimeout
+	if rc.RequestTimeout != "" {
+		parsed, err := time.ParseDuration(rc.RequestTimeout)
+		if err != nil {
+			return nil, fmt.Errorf("invalid request_timeout %q: %w", rc.RequestTimeout, err)
+		}
+		if parsed <= 0 {
+			return nil, fmt.Errorf("invalid request_timeout %q: must be positive", rc.RequestTimeout)
+		}
+		timeout = parsed
+	}
+
 	return &Downloader{
 		client: http.Client{
-			Timeout: 30 * time.Second,
+			Timeout: timeout,
 			Transport: &userAgentTransport{
 				base: &http.Transport{
 					MaxIdleConns:        100,

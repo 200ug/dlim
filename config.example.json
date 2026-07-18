@@ -14,5 +14,6 @@
     "only_images": true,
     "max_concurrent_threads": 32,
     "max_concurrent_media": 64,
-    "max_retries": 3
+    "max_retries": 3,
+    "request_timeout": "120s"
 }
